@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOv8 Object Detection for Autonomous Driving</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="project-container">
+    <header class="project-header">
+      <h1>YOLOv8 Object Detection for Autonomous Driving</h1>
+      <p>2D Object Detection for Autonomous Driving</p>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="project-overview">
+      <h2>Project Overview</h2>
+      <p><strong>Objective:</strong> The goal of this project is to develop a robust object detection system for autonomous driving using the YOLOv8 architecture. The system should accurately identify and locate objects within an image, facilitating safe and efficient autonomous vehicle operation.</p>
+      <p><strong>Problem Description:</strong> Object detection is crucial for autonomous driving, enabling the vehicle to perceive its surroundings and make informed decisions. This project leverages the KITTI dataset, a benchmark in autonomous driving research, to train and evaluate the YOLOv8 model for 2D object detection tasks.</p>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="project-methodology">
+      <h2>Methodology</h2>
+      <h3>Dataset</h3>
+      <h4>KITTI Dataset Description</h4>
+      <p>The KITTI dataset, developed by the Karlsruhe Institute of Technology and the Toyota Technological Institute at Chicago, provides a comprehensive suite of data collected from various sensor modalities. It is widely used for research in computer vision and autonomous driving.</p>
+      <figure class="project-figure">
+        <img src="../assets/images/projects/yoloV10/kittidataset.png" alt="Sample output of the KITTI Dataset" class="project-image">
+        <figcaption class="project-figcaption">Figure 4: Sample output of the KITTI Dataset</figcaption>
+      </figure>
+      <h4>Data Collection</h4>
+      <ul>
+        <li><strong>High-Resolution Stereo Cameras:</strong> Two grayscale and two color cameras mounted on the roof of the car capture images at a resolution of 1242x375 pixels, providing a 360-degree view around the vehicle.</li>
+        <li><strong>2D Laser Scanner:</strong> A Velodyne HDL-64E 2D laser scanner provides detailed 2D point clouds, capturing the geometric structure of the surrounding environment up to a range of 100 meters.</li>
+        <li><strong>Inertial Measurement Unit (IMU):</strong> The IMU data includes information about the vehicle’s position, orientation, and velocity, crucial for accurate localization and mapping.</li>
+        <li><strong>GPS:</strong> High-precision GPS data ensures accurate georeferencing of the collected sensor data.</li>
+      </ul>
+      <h4>Data Preprocessing and Augmentation</h4>
+      <ul>
+        <li>Image Resizing: All images were resized to a fixed size to ensure consistency during training (e.g., 416x416 pixels for YOLOv8).</li>
+        <li>Normalization: Image pixel values were normalized to a range of [0, 1] to facilitate faster convergence during training.</li>
+        <li>Random Cropping, Scaling, Rotation, Horizontal Flipping: These augmentation techniques were applied to increase the diversity of the training samples.</li>
+      </ul>
+    </section>
+
+    <!-- Model Architecture Section -->
+    <section class="project-architecture">
+      <h2>Model Architecture</h2>
+      <h3>YOLOv8 Architecture</h3>
+      <h4>Backbone</h4>
+      <p>The backbone is the convolutional neural network (CNN) responsible for extracting features from the input image. YOLOv8 uses a custom CSPDarknet53 backbone, which employs cross-stage partial connections to improve information flow between layers and boost accuracy.</p>
+      <h4>Neck</h4>
+      <p>The neck merges feature maps from different stages of the backbone to capture information at various scales. YOLOv8 utilizes a novel C2f module instead of the traditional Feature Pyramid Network (FPN), combining high-level semantic features with low-level spatial information.</p>
+      <h4>Head</h4>
+      <p>The head is responsible for making predictions. YOLOv8 employs multiple detection modules that predict bounding boxes, objectness scores, and class probabilities for each grid cell in the feature map.</p>
+      <figure class="project-figure">
+        <img src="../assets/images/projects/yoloV10/yolov8.png" alt="YOLOv8 Architecture" class="project-image">
+        <figcaption class="project-figcaption">Figure 6: YOLOv8 Architecture</figcaption>
+      </figure>
+    </section>
+
+    <!-- Training Section -->
+    <section class="project-training">
+      <h2>Training Process</h2>
+      <p>The KITTI dataset, which is around 22GB, was used with 80% of the data allocated for training and 20% for validation. The following hyperparameters were configured for training the YOLOv8 model:</p>
+      <ul>
+        <li><strong>Learning Rate:</strong> Default learning rate provided by the YOLOv8 implementation.</li>
+        <li><strong>Batch Size:</strong> 16, balancing memory usage and training stability.</li>
+        <li><strong>Number of Epochs:</strong> 100, sufficient for convergence.</li>
+        <li><strong>Image Size:</strong> 640x640 pixels for training.</li>
+        <li><strong>Optimizer:</strong> Adam optimizer with default parameters.</li>
+      </ul>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section class="project-evaluation">
+      <h2>Evaluation and Results</h2>
+      <h3>Evaluation Metrics</h3>
+      <ul>
+        <li><strong>Mean Average Precision (mAP@0.5):</strong> 0.85</li>
+        <li><strong>Mean Average Precision (mAP@0.75):</strong> 0.72</li>
+        <li><strong>Precision:</strong> 0.88</li>
+        <li><strong>Recall:</strong> 0.82</li>
+        <li><strong>F1-Score:</strong> 0.85</li>
+        <li><strong>Accuracy:</strong> 0.92</li>
+      </ul>
+      <figure class="project-figure">
+        <img src="../assets/images/projects/yoloV10/evalutionyolo.png" alt="Quantitative Results" class="project-image">
+        <figcaption class="project-figcaption">Table 1: Evaluation Metrics for YOLOv8 on KITTI Dataset</figcaption>
+      </figure>
+    </section>
+
+    <!-- Media section -->
+    <section class="project-media">
+      <h2>Project Media</h2>
+      <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/yolo10.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing detection of cars.</figcaption>
+      </figure>
+      <figure class="project-figure"> 
+      <img src="../assets/images/projects/yoloV10/yolo101.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image shows detection of people in my university.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/yolo102.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">This Image Shows the detection of different objects, like bikes</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/yolo103.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">The Image shows the detection of people.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/yolo104.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing the detection of objects on the road like the bus coming.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/yolov8RT.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing the real time detection of objects in the terminal processing</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/yoloV10/carsensors.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">This images showing the different sensors on the car used for object detection during Autonomous Driving.</figcaption>
+    </figure>
+    </section>
+
+    <!-- Discussion Section -->
+    <section class="project-discussion">
+      <h2>Discussion</h2>
+      <h3>Challenges and Limitations</h3>
+      <ul>
+        <li><strong>Sparse and Uneven Point Clouds:</strong> Difficulty in detecting smaller objects and accurately localizing objects at greater distances.</li>
+        <li><strong>Computational Complexity:</strong> High computational resources required for processing high-resolution images and dense point clouds.</li>
+        <li><strong>Occlusions and Variability in Object Appearance:</strong> Variations in object appearance due to changes in lighting, weather conditions, and viewing angles.</li>
+        <li><strong>Integration of Multimodal Data:</strong> Complexity in combining data from different sensors (e.g., cameras, LiDAR, radar).</li>
+        <li><strong>Real-Time Processing Requirements:</strong> Balancing detection accuracy with real-time performance is crucial for safety and reliability.</li>
+      </ul>
+      <h3>Future Work</h3>
+      <ul>
+        <li><strong>Advanced Architectures:</strong> Exploring architectures like variational autoencoders (VAEs) or generative adversarial networks (GANs) for enhanced retrieval performance.</li>
+        <li><strong>Augmenting Data:</strong> Implementing data augmentation techniques to improve model robustness.</li>
+        <li><strong>Real-time Retrieval:</strong> Optimizing the model and retrieval process for real-time applications.</li>
+      </ul>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="project-conclusion">
+      <h2>Conclusion</h2>
+      <p>In this project, I explored the application of YOLOv8 for 2D object detection in autonomous driving using the KITTI dataset. By preprocessing LiDAR point clouds into image representations, I leveraged the strengths of YOLOv8 to detect and classify objects in a 2D context. My experiments demonstrated that the CSPDarknet53 backbone achieves the highest detection accuracy, making it suitable for applications where precision is paramount. Conversely, MobileNetV2 offers the best real-time performance, ideal for scenarios requiring immediate processing.</p>
+    </section>
+
+    <!-- Back to Projects Button -->
+    <div class="back-to-projects">
+      <a href="../index.html#Projects" class="back-button">Back to Projects</a>
+    </div>
+  </div>
+</body>
+</html>

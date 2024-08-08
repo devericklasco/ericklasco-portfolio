@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Focus </title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="project-container">
+    
+    <header class="project-header">
+      <h1>Content-Based Image Retrieval (CBIR) Model</h1>
+      <p>Designed and developed a computer vision model for CBIR using Auto-Encoders with VGG19, 
+        focusing on efficient retrieval of images based on content features 
+        which can be used in place recognition.</p>
+    </header>
+
+    <section class="project-overview">
+      <h2>Project Overview</h2>
+      <p><strong>Objective:</strong> The goal of this project is to develop a robust image retrieval 
+        system using an autoencoder architecture based on the VGG19 model. 
+        The system should be capable of encoding images into a compact, 
+        meaningful representation that can be used to find similar images efficiently.</p>
+
+        <p><strong>Problem Description:</strong> Image retrieval is a crucial task in the field of 
+          computer vision and pattern recognition. The primary objective is to retrieve images from a 
+          large database that are similar or relevant to a given query image. 
+          This has significant applications in areas such as e-commerce (finding similar products), 
+          medical imaging (retrieving similar medical scans), and digital asset management 
+          (organizing and finding images in large collections).</p>
+      <p><strong>Methodology:</strong></p>
+      <ol>
+        <li><strong>Dataset Preparation:</strong>
+          <ul>
+            <li>Collected images of different items of different categories".</li>
+            <li>Included images with varying angles and lighting conditions to enhance model robustness.</li>
+            <li>Split the dataset into training and testing sets for model evaluation.</li>
+            <li>Preprocess the images to ensure consistent dimensions and normalization.</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>Model Architecture:</h4>
+      <p>The model architecture chosen for this image retrieval task is based on the VGG19 network, a well-known convolutional neural network (CNN) pre-trained on the ImageNet dataset. The VGG19 model is used as a feature extractor, and an autoencoder is constructed to encode images into a compact, meaningful representation for image retrieval.</p>
+      <h5>VGG19 as a Feature Extractor</h5>
+      <p><strong>VGG19 Network:</strong> Use a pre-trained VGG19 model to leverage its feature extraction capabilities. Fine-tune the VGG19 model to suit the image retrieval task. VGG19 is a deep convolutional neural network with 19 layers, known for its simplicity and effectiveness in image classification tasks. It consists of 16 convolutional layers and 3 fully connected layers, making it suitable for extracting rich and hierarchical features from images. In this project, the fully connected layers are excluded, and only the convolutional layers are used to extract features. This results in a feature map that captures essential information about the input image.</p>
+      <p><strong>Loading the Pre-trained VGG19 Model:</strong> The VGG19 model is loaded with pre-trained weights from the ImageNet dataset, which helps in leveraging the learned features without training from scratch. The model is set to include_top=False to exclude the final classification layers and use the convolutional layers as a feature extractor. The input shape is set to match the shape of the images in the dataset.</p>
+      <h5>Autoencoder Design</h5>
+      <p>An autoencoder is a type of neural network used for learning efficient codings of input data.</p>
+      <p><strong>Encoder:</strong> The encoder part of the autoencoder compresses the input image into a lower-dimensional representation. In this project, the encoder uses the convolutional layers of the VGG19 model to extract features. The output from these layers forms the encoded representation or the latent space.</p>
+      <p><strong>Decoder:</strong> The decoder reconstructs the input image from the encoded representation. The decoder architecture mirrors the encoder but in reverse, using transposed convolutional layers to upsample the encoded representation back to the original image dimensions.</p>
+      <h4>Training:</h4>
+      <p>The autoencoder is trained on the training dataset to minimize the difference between the input images and their reconstructions. This is typically done using a loss function such as binary cross-entropy or mean squared error. During training, the autoencoder learns to compress images into a lower-dimensional latent space and then reconstruct them as accurately as possible. Use the encoded representation for image retrieval.</p>
+
+          <!-- Detailed Steps Section -->
+    <section class="project-steps">
+      <h2>Detailed Steps to Achieve Image Retrieval for my Project</h2>
+      <ol>
+        <li><strong>Dataset Preparation:</strong> Images are collected and preprocessed, including resizing and normalization, to ensure they have consistent dimensions and values.</li>
+        <li><strong>Image Transformation:</strong> Each image is transformed using a custom transformer that resizes and normalizes the images, making them suitable for processing by the VGG19 model.</li>
+        <li><strong>Feature Extraction:</strong> The preprocessed images are passed through the VGG19 model to extract high-level features. These features represent the images in a lower-dimensional space while retaining essential information for distinguishing between different images.</li>
+        <li><strong>Training the Autoencoder:</strong> The autoencoder is trained on the extracted features, learning to compress and reconstruct the images. After training, the encoder part of the autoencoder is used to generate compact feature representations for the images.</li>
+        <li><strong>Image Retrieval:</strong> For image retrieval, the query image is encoded using the trained encoder to obtain its feature representation. The K-nearest neighbors (KNN) algorithm is used to find images in the database with feature representations closest to the query image. The cosine similarity metric is employed to measure the distance between feature vectors.</li>
+        <li><strong>Visualization:</strong> The retrieved images are visualized alongside the query image to evaluate the retrieval performance. Techniques like t-SNE are used to visualize the distribution of images in the feature space, providing insights into the clustering and separability of different image classes.</li>
+      </ol>
+    </section>
+
+    <section class="project-implementation">
+      <h2>Implementation</h2>
+      <p>The following Python code implements the described approach using TensorFlow, scikit-learn, and other libraries. The full implementation can be found in this <a href="https://github.com/busuulwa-ericklasco7/Content-Based-Image-Retrieval-using-Autoencoder-with-VGG19" target="_blank">GitHub repository</a>.</p>
+    </section>
+
+    <!-- Results Section -->
+    <section class="project-results">
+      <h2>Results</h2>
+      <p>The results are demonstrated through visual outputs of the query images and their retrieved similar images 
+        from the database. These results can be seen with the following outputs of the images below:</p>
+    </section>
+   
+      <section class="project-media">
+          <h2>Project Media</h2>
+          <figure class="project-figure">
+          <img src="../assets/images/projects/cbir/cbir1.png" alt="Project 3" class="project-image">
+          <figcaption class="project-figcaption">Image showing the retrieved image of the cbir model from the database.</figcaption>
+          </figure>
+          <figure class="project-figure"> 
+          <img src="../assets/images/projects/cbir/cbir2.png" alt="Project 3" class="project-image">
+          <figcaption class="project-figcaption">Image showing the retrieved image of the cbir model from the database.</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="../assets/images/projects/cbir/cbir3.png" alt="Project 3" class="project-image">
+          <figcaption class="project-figcaption">Image showing the retrieved image of the cbir model from the database.</figcaption>
+        </figure>
+        <figure class="project-figure">
+          <img src="../assets/images/projects/cbir/cbir4.png" alt="Project 3" class="project-image">
+          <figcaption class="project-figcaption">Image showing the retrieved image of the cbir model from the database.</figcaption>
+        </figure>
+      </section>
+
+    <!-- Discussion Section -->
+    <section class="project-discussion">
+      <h2>Discussion</h2>
+      <h3>Analysis</h3>
+      <p>The use of VGG19 as a feature extractor has proven to be effective in capturing high-level features necessary for distinguishing images. The autoencoder approach helps in reducing the dimensionality of the image data while preserving essential information for similarity assessment.</p>
+      <h3>Challenges</h3>
+      <h4>Dataset Quality</h4>
+      <p>The performance of the retrieval system was influenced by the quality and diversity of the dataset. A more diverse dataset could potentially improve the system’s generalizability.</p>
+      <h4>Hyperparameter Tuning</h4>
+      <p>Fine-tuning the hyperparameters of the autoencoder, such as the number of epochs, batch size, and the architecture of the encoder/decoder, is crucial for achieving optimal performance.</p>
+      <h4>Computational Resources</h4>
+      <p>Training deep learning models, especially with large datasets, requires substantial computational power and time. Using Colab helped mitigate some of these resource constraints, but a more robust setup might be needed for commercial applications.</p>
+      <h3>Future Work</h3>
+      <h4>Advanced Architectures</h4>
+      <p>Exploring more advanced architectures, such as variational autoencoders (VAEs) or generative adversarial networks (GANs), could further enhance retrieval performance.</p>
+      <h4>Augmenting Data</h4>
+      <p>Implementing data augmentation techniques could help in improving the robustness of the model.</p>
+      <h4>Real-time Retrieval</h4>
+      <p>Optimizing the model and retrieval process for real-time applications could broaden the use cases for this system, making it suitable for dynamic and interactive environments.</p>
+    </section>
+
+        <!-- Conclusion Section -->
+        <section class="project-conclusion">
+          <h2>Conclusion</h2>
+          <p>In this project, I explored the application of an autoencoder-based image retrieval system leveraging the VGG19 model for feature extraction. The primary goal was to develop a system capable of retrieving visually similar images from a large dataset, demonstrating the effectiveness of computer vision and deep learning techniques in content-based image retrieval.</p>
+          <p>The VGG19 model, pre-trained on the ImageNet dataset, proved to be a robust feature extractor, capturing high-level features essential for distinguishing between different images. By utilizing an autoencoder, we effectively reduced the dimensionality of these features while preserving their key characteristics, allowing for efficient and accurate image retrieval.</p>
+        </section>
+
+    <div class="back-to-projects">
+      <a href="../index.html#Projects" class="back-button">Back to Projects</a>
+    </div>
+  </div>
+</body>
+</html>

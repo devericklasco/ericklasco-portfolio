@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Focus </title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="project-container">
+    
+    <header class="project-header">
+      <h1>Object Detection for Face Focus Detection in Video Calls</h1>
+      <p>Developed an object detection system using Landing.ai to determine if a person is focused on the camera during video calls, such as on Zoom and other platforms.</p>
+    </header>
+
+    <section class="project-overview">
+      <h2>Project Overview</h2>
+      <p><strong>Objective:</strong> Develop an object detection system using Landing.ai to determine if a person is focused on the camera during video calls, such as on Zoom and other platforms. The goal is to enhance user experience by providing feedback on camera focus, improving engagement and communication effectiveness.</p>
+      <p><strong>Methodology:</strong></p>
+      <ol>
+        <li><strong>Dataset Preparation:</strong>
+          <ul>
+            <li>Collected images of people facing the camera and labeled them as "Facing Camera".</li>
+            <li>Collected images of people facing away from the camera and labeled them as "Facing Away".</li>
+            <li>Included images with varying angles and lighting conditions to enhance model robustness.</li>
+            <li>Split the dataset into training and testing sets for model evaluation.</li>
+          </ul>
+        </li>
+        <li><strong>Model Training:</strong>
+          <ul>
+            <li>Utilized Landing.ai platform for training the model.</li>
+            <li>Selected RTMDet architecture with 9 million parameters for fast training and inference.</li>
+            <li>Conducted training with 100 epochs, leveraging Landing.ai’s GPU resources in the cloud.</li>
+            <li>Employed default hyperparameter tuning provided by the Landing.ai platform.</li>
+          </ul>
+        </li>
+        <li><strong>Model Evaluation:</strong>
+          <ul>
+            <li>Tested the trained model using a laptop camera, capturing images at various angles.</li>
+            <li>Achieved high accuracy with the model correctly predicting focus in almost all test images.</li>
+            <li>Observed 100% accuracy on both training and validation datasets, noting the potential for overfitting due to the small dataset size.</li>
+          </ul>
+        </li>
+        <li><strong>Future Improvements:</strong>
+          <ul>
+            <li>Expand the dataset to include more diverse images for better generalization.</li>
+            <li>Perform extensive hyperparameter tuning to optimize model performance.</li>
+            <li>Integrate the system into video conferencing applications to provide real-time feedback on camera focus.</li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Model Architecture Details from Landing.ai:</strong>
+      <ul>
+        <li><strong>RtmDet-[9M]:</strong> Fastest training and inference times with 9 million parameters.</li>
+        <li><strong>RepPoints-[20M]:</strong> Faster training and inference than RepPoints-[37M] with 20 million parameters.</li>
+        <li><strong>RepPoints-[37M]:</strong> Captures complex patterns with 37 million parameters, though slower in training and inference.</li>
+      </ul>
+      </p>
+      <p><strong>Conclusion:</strong> The developed system successfully determines if a person is focused on the camera, demonstrating the potential to improve video call experiences. With further dataset expansion and model tuning, the system can be integrated into video conferencing tools for enhanced user engagement and communication.</p>
+    </section>
+
+   
+    <section class="project-media">
+      <h2>Project Media</h2>
+      <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/facefocus.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing the Overall Face Focus Model Overview.</figcaption>
+      </figure>
+      <figure class="project-figure"> 
+      <img src="../assets/images/projects/FaceFocus/FaceFocusDataset.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image shows some of the dataset faces.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/FaceFocusLabels.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">This Image Shows the two labels used in the model.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/facefocusEvaluation.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">The Image shows the Evaluation of the Model.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/FaceFocusCamera.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing the prediction of the model when facing the camera.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/FaceFocusAway.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">Image showing the prediction of the model when Facing Away from the camera.</figcaption>
+    </figure>
+    <figure class="project-figure">
+      <img src="../assets/images/projects/FaceFocus/FaceFocusQRCode.png" alt="Project 1" class="project-image">
+      <figcaption class="project-figcaption">This images shows the QRCode one can scan to try out the model on their phone or device.</figcaption>
+    </figure>
+    </section>
+
+    <section class="project-details">
+      <h2>High-Level Overview</h2>
+      <p><strong>Objective:</strong> To create an object detection system that identifies whether a person is focused on the camera during video calls using Landing.ai.</p>
+      <p><strong>Approach:</strong></p>
+      <ul>
+        <li><strong>Data Collection:</strong> Gathered and labeled images of people facing the camera and facing away.</li>
+        <li><strong>Model Training:</strong> Used Landing.ai’s platform with RTMDet architecture, training for 100 epochs with default hyperparameter tuning.</li>
+        <li><strong>Evaluation:</strong> Tested the model with a laptop camera and my phone, achieving high accuracy in detecting focus.</li>
+      </ul>
+      <p><strong>Outcome:</strong> The system accurately detects camera focus, with 100% accuracy on both training and validation datasets. Future work includes expanding the dataset and fine-tuning the model for broader application.</p>
+    </section>
+
+    <div class="back-to-projects">
+      <a href="../index.html#Projects" class="back-button">Back to Projects</a>
+    </div>
+  </div>
+</body>
+</html>
