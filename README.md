@@ -7,9 +7,9 @@ Welcome to my portfolio! This project showcases a selection of my work in the fi
 
 For any inquiries, please contact me at:
 
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/erick-busuulwa-82383a170/)
-- **Twitter:** [@yourusername](https://twitter.com/ericklasco)
+
+- **LinkedIn:** [Erick Busuulwa](https://www.linkedin.com/in/erick-busuulwa-82383a170/)
+- **Twitter:** [ericklasco](https://twitter.com/ericklasco)
 
 ---
 
